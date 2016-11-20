@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_play_progress_bar"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="com.example.students.test.PlayProgressBar"
+    android:weightSum="1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!" />
+
+    <VideoView
+        android:layout_width="wrap_content"
+        android:layout_height="140dp"
+        android:id="@+id/videoView"
+        android:layout_weight="0.30" />
+
+    <Button
+        android:text="PLAY"
+        android:onClick="videoplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button" />
+
+</LinearLayout>
+    <animated-vector xmlns:android="http://schemas.android.com/apk/res/android" >
+    <aapt:attr name="android:drawable">
+        <vector
+            android:height="64dp"
+            android:width="64dp"
+            android:viewportHeight="600"
+            android:viewportWidth="600" >
+            <group
+                android:name="rotationGroup"
+                android:pivotX="300.0"
+                android:pivotY="300.0"
+                android:rotation="45.0" >
+                <path
+                    android:name="v"
+                    android:fillColor="#000000"
+                    android:pathData="M300,70 l 0,-70 70,70 0,0 -70,70z" />
+            </group>
+        </vector>
+    </aapt:attr>
+
+    <target android:name="rotationGroup"> *
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:duration="6000"
+                android:propertyName="rotation"
+                android:valueFrom="0"
+                android:valueTo="360" />
+        </aapt:attr>
+    </target>
+
+    <target android:name="v" >
+        <aapt:attr name="android:animation">
+            <set>
+                <objectAnimator
+                    android:duration="3000"
+                    android:propertyName="pathData"
+                    android:valueFrom="M300,70 l 0,-70 70,70 0,0 -70,70z"
+                    android:valueTo="M300,70 l 0,-70 70,0  0,140 -70,0 z"
+                    android:valueType="pathType"/>
+            </set>
+        </aapt:attr>
+    </target>
+    </animated-vector>
